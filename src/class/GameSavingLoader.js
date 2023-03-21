@@ -1,5 +1,6 @@
 import reader from '../function/reader'
 import parser from '../function/parser'
+import GameSaving from './GameSaving'
 
 class GameSavingLoader {
   constructor() {
@@ -8,11 +9,11 @@ class GameSavingLoader {
   load() {
     return reader()
       .then((data) => parser(data))
-      .then((json) => JSON.parse(json))
+      .then((json) => Object.assign(new GameSaving(), JSON.parse(json)))
   }
 
   async loadAsync() {
-    return JSON.parse(await parser(await reader()))
+    return Object.assign(new GameSaving(), JSON.parse(await parser(await reader())))
   }
 }
 

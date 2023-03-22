@@ -1,12 +1,12 @@
 class GameSaving {
-  constructor() {
-    this.id = 0
-    this.created = 0
+  constructor(param) {
+    this.id = param.id
+    this.created = param.created
     this.userInfo = {
-      id: 0,
-      name: '',
-      level: 0,
-      points: 0
+      id: param.userInfo.id,
+      name: param.userInfo.name,
+      level: param.userInfo.level,
+      points: param.userInfo.points
     }
   }
 }
